@@ -153,6 +153,7 @@
       margin-right: 0;
       background: none;
       color: #ffffff;
+      text-align: center;
     }
 
     .panel-user-tool {
@@ -194,6 +195,7 @@
       background-color: #404040;
       color: #ffffff;
       padding-bottom: 0;
+      text-align: center;
     }
 
     .close-dark {
@@ -242,7 +244,15 @@
     }
 
     body {
+      background-image: linear-gradient(#0833ff, #000000);
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
+    }
+
+    body {
       background-image: linear-gradient(#6388CF, #ffffff);
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
     }
 
     h1 {
@@ -255,19 +265,23 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     ul {
       margin: 0px;
       padding: 0px;
       padding-left: 20px;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.1;
     }
 
-    body {
-      background-image: linear-gradient(#6388CF, #ffffff);
+    ol {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 1.1;
     }
 
     li {
@@ -311,7 +325,7 @@
     <div class='col-sm-10'>
       <!-- title and authors in middle-->
       <div class='panel panel-custom-title'>
-          <h1 class='text-center'>Detecting Hot Close-in Gas Giants Through Infrared High-Dispersion Spectroscopy</h1>
+        <h1 class='text-center'><b>Detecting Hot Close-in Gas Giants Through Infrared High-Dispersion Spectroscopy</b></h1>
           <p class='text-center' style="font-size: 18px;">
               Thomas Vandal<sup>1</sup>
               R. Doyon<sup>1</sup>
@@ -376,7 +390,7 @@
 <!-- </div> -->
 
 <div class='row'>
-  <div class='col-sm-4'>
+  <div class='col-sm-3'>
 
     <div class='panel panel-default'>
       <div class="panel-heading">
@@ -426,9 +440,14 @@
         </ul>
       </div>
     </div>
+
+    <div class='panel panel-custom-title'>
+      <p><img src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/nirps_no_bg.png' width='60%' height='auto'></p>
     </div>
 
-    <div class='col-sm-4'>
+    </div>
+
+    <div class='col-sm-3'>
 
       <div class='panel panel-default'>
         <!-- RV fit -->
@@ -479,7 +498,7 @@
               <div class="modal-content">
                 <div class="modal-body">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_only_perecc.png' width='100%' height='auto'></p>
+                  <p align=><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_only_perecc.png' width='100%' height='auto'></p>
                   <p class='caption-mod'><em>Figure: Period and eccentricity distributions of &beta; Pic b from RV fit.
                     The distributions for different priors show that P<sub>b</sub> and e<sub>b</sub> are sensitive to priors.
                     Low periods and eccenctricities are favoured by the RV data when free priors are used on both parameters.
@@ -503,17 +522,23 @@
             </div>
           </div>
           <!-- <ul style="font-size: 18px;"> -->
+          <p><b>We propose do use high resolution spectroscpy (HRS) to directly detect young giant exoplanets at all separations and bridge the gap between existing detection methods</b>.</p>
           <ul>
-            <!-- <li>15 years of RV coverage allow us to <b>constrain the orbit and mass of both planets from  -->
-            <!--     extended RV data only for the first time</b>, with <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvModal">priors from direct imaging</a>.</li> -->
-            <li>Obtain high-resolution spectrum of a star with high SNR and wide coverage</li>
-            <li>Cross-correlate observation with model spectrum of companion</li>
-            <li>Cross-correlation result gives the detection significance</li>
-            <li>Infrared observations maximize companion-to-host contrast</li>
-            <li>Detection significance scales with \( \sqrt{N_\text{lines}} \): high resolution and wide spectral coverage are critical to improve sensitivity</li>
+            <!-- 15 years of RV coverage allow us to <b>constrain the orbit and mass of both planets from  -->
+            <!--     extended RV data only for the first time</b>, with <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvModal">priors from direct imaging</a>. -->
+            <li>The first step is to obtain a single spectrum of a star with high signal-to-noise ratio (S/N)</li>
+            <li>We then cross-correlate this spectrum with model spectra of potential planetary-mass companions</li>
+            <li>If a companion is present, the cross-correlation funciont (CCF) shows a peak, as displayed in the right panel. The peak height corresponds to detection strength.</li>
+            <li>Observing in the infrared maximizes the companion-to-host contrast</li>
+            <li>High resolution and wide spectral coverage are critical: the detection significance scales with \( \sqrt{N_\text{lines}} \) (number of spectral lines observed)</li>
           </ul>
 
-          <p>This has been shown to work for binaries with a low-mass secondary. We aim to extend it to fainter, planetary mass companions. <b>The sensitivity of this method does not depend on orbital separation</b>. In addition to detecting the planet, we can measure its radial velocity and rotational velocity (\( v \sin{i} \)). Follow up observations enable dynamical mass measurement, orbital characterization and detailed atmospheric studies.</p>
+          <p>This has been shown to work for binaries with a low-mass secondary (Gullikson et al. 2016). We aim to extend it to fainter, planetary mass companions. <b>The sensitivity of this method does not depend on orbital separation</b>. HRS has already been used to characterize known giant planets. Once a companion is detected, it will be amenable to:</p>
+          <ul>
+            <li>Radial velocity and rotational velocity (\( v \sin{i} \)) measurements</li>
+            <li>Mass determination and orbital characterization with follow-up observations</li>
+            <li>Detailed atmospheric characterization</li>
+          </ul>
           <!-- <br> -->
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#rvFit" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_fit.png' width='100%' height='auto'></p> -->
           <!-- <p class='caption'><em>Figure: The two-planet best fit is shown in blue, and the signal of &beta; Pic b alone is shown in red.</em></p> -->
@@ -524,21 +549,31 @@
           <!-- </ul> -->
         </div>
       </div>
+    </div>
+
+
+    <div class='col-sm-3'>
       <div class='panel panel-default'>
         <div class="panel-heading">
-          <h3>PISCO: Planet Inference from Spectral Correlation</h3>
+          <h3>PISCO:<br> Planet Inference from Spectral COrrelation</h3>
         </div>
         <div class='panel-body'>
+          <p>The PISCO program aims to demonstrate the proposed technique with NIRPS. It will:</p>
           <ul>
-            <li>Observe young bright stars with NIRPS</li>
-            <li>Search for giant companions with HDCCS</li>
-            <li>First observations: confirm performance with known BDs and giant planets</li>
+            <li>Observe young bright stars and fast rotators</li>
             <ul>
-              <li>Observe variety of targets with contrasts between \( 10^{-2} \) and \( 10^{-5} \)</li>
-              <li>Also an opportunity to characterize these targets with HRS</li>
-              <li>Some have not been independently confirmed due to their short separation. This would enable independent confirmation</li>
+              <li>Bright targets ensure a high SNR with short exposures</li>
+              <li>Rotational broadening minimizes the spectral signature of the primary</li>
             </ul>
-            <li>Observe systems suspected to host undetected giant planets at short separations</li>
+            <li><b>Confirm performance on sky with known companions</b>: 8 brown dwarfs and 2 giant planets with contrasts <b>covering three orders of magnitude</b>, from \( 2 \times 10^{-2} \) to \( 3 \times 10^{-5} \)</li>
+            <ul>
+              <!-- TODO: Modal to detail opportunity -->
+
+              <li>BDs will serve as clear, unambiguous demonstration of the technique</li>
+              <li>Opportunity to independently confirm 4 of these companions for the first time</li>
+              <li>Giant planets a few times more massive than Jupiter will demonstrate the feasibility of more challenging targets</li>
+            </ul>
+            <li>Once the technique has been demonstrated: observe three systems suspected to host undetected giant planets at short separations</li>
             <ul>
               <li>Synergy with JWST/NIRISS Aperture Masking Interferometry GTO program</li>
             </ul>
@@ -549,29 +584,21 @@
       </div>
 
     </div>
-    <div class='col-sm-4'>
+    <div class='col-sm-3'>
 
       <div class='panel panel-default'>
         <div class="panel-heading">
           <h3>First results</h3>
         </div>
         <div class='panel-body'>
+          <p><b>We simulated all targets from PISCO and found that all known companions can be recovered at \( 4 \sigma \) with exposures shorter than 2 hours</b></p>
           <ul>
-            <li>Observe young bright stars with NIRPS</li>
-            <li>Search for giant companions with HDCCS</li>
-            <li>First observations: confirm performance with known BDs and giant planets</li>
-            <ul>
-              <li>Observe variety of targets with contrasts between \( 10^{-2} \) and \( 10^{-5} \)</li>
-              <li>Also an opportunity to characterize these targets with HRS</li>
-              <li>Some have not been independently confirmed due to their short separation. This would enable independent confirmation</li>
-            </ul>
-            <li>Observe systems suspected to host undetected giant planets at short separations</li>
-            <ul>
-              <li>Synergy with JWST/NIRISS Aperture Masking Interferometry GTO program</li>
-            </ul>
+            <li>Systems with a BD secondary (contrasts \( \gt 10^{-3} \)) can be recovered at \( \gt 5 \sigma \)</li>
+            <li>The most challenging case, &beta; Pictoris c (contrast \( 3 \times 10^{-5} \)), yields a \( 4 \sigma \) detection as shown below</li>
           </ul>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
-          <!-- <p class='caption'><em>Figure: Mass distribution of &beta; Pic b from our dynamical measurement compared to predictions from evolutionary models.</em></p> -->
+          <p align="center"><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/bpic_c_cc.png' width='70%' height='auto'></p>
+          <p class='caption'><em>Figure: CCF showing the detection of &beta; Pictoris c with cross-correlation HRS</em></p>
         </div>
       </div>
 
@@ -581,28 +608,17 @@
         </div>
         <div class='panel-body'>
           <ul>
-            <li>Observe young bright stars with NIRPS</li>
-            <li>Search for giant companions with HDCCS</li>
-            <li>First observations: confirm performance with known BDs and giant planets</li>
-            <ul>
-              <li>Observe variety of targets with contrasts between \( 10^{-2} \) and \( 10^{-5} \)</li>
-              <li>Also an opportunity to characterize these targets with HRS</li>
-              <li>Some have not been independently confirmed due to their short separation. This would enable independent confirmation</li>
-            </ul>
-            <li>Observe systems suspected to host undetected giant planets at short separations</li>
-            <ul>
-              <li>Synergy with JWST/NIRISS Aperture Masking Interferometry GTO program</li>
-            </ul>
+            <li>Refine simulations to better account for telluric correction and instrumental effects</li>
+            <li>On sky observation</li>
+            <li>Larger survey once the technique as been demonstrated</li>
           </ul>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
           <!-- <p class='caption'><em>Figure: Mass distribution of &beta; Pic b from our dynamical measurement compared to predictions from evolutionary models.</em></p> -->
         </div>
       </div>
 
-    </div>
 
-    <div class="col-sm-12 text-right">
-      <div class='panel panel-user-tool'>
+      <div class='panel panel-user-tool' align="right">
 
       <!-- Trigger the modal with a button -->
       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#abstract">Abstract</button>
@@ -621,34 +637,34 @@
               <h4 class="modal-title">References</h4>
             </div>
             <div class="modal-body">
-              <p>Foreman-Mackey, Daniel, Eric Agol, Sivaram Ambikasaran, and Ruth Angus. 2017.
-              “Fast and Scalable Gaussian Process Modeling with Applications to Astronomical Time Series.”
-              The Astronomical Journal 154 (6): 220,
-              doi: <a href="https://doi.org/10.3847/1538-3881/aa9332" target="_blank">10.3847/1538-3881/aa9332</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2017AJ....154..220F/abstract" target="_blank">ADS</a>.</p>
-              <p>Fulton, Benjamin J., Erik A. Petigura, Sarah Blunt, and Evan Sinukoff. 2018.
-              “RadVel: The Radial Velocity Modeling Toolkit.”
-              Publications of the Astronomical Society of the Pacific 130 (986): 044504,
-              doi: <a href="https://doi.org/10.1088/1538-3873/aaaaa8" target="_blank">10.1088/1538-3873/aaaaa8</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2018PASP..130d4504F/abstract" target="_blank">ADS</a>.</p>
-              <p>Lagrange, A.-M., A. Boccaletti, M. Langlois, G. Chauvin, R. Gratton, H. Beust, S. Desidera, et al. 2019a.
-              “Post-Conjunction Detection of &beta; Pictoris b with VLT/SPHERE.”
-              Astronomy & Astrophysics 621 (January): L8,
-              doi: <a href="https://doi.org/10.1051/0004-6361/201732121" target="_blank">10.1051/0004-6361/201732121</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...621L...8L/abstract" target="_blank">ADS</a>.</p>
-              <p>Lagrange, A.-M., Nadège Meunier, Pascal Rubini, Miriam Keppler, Franck Galland, Eric Chapellier, Eric Michel, et al. 2019b.
-              “Evidence for an Additional Planet in the β Pictoris System.” Nature Astronomy 3, no. 12 (December 2019): 1135–42,
-              doi: <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">s41550-019-0857-1</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2019NatAs...3.1135L/abstract" target="_blank">ADS</a>.</p>
-              <p>Nielsen, Eric L., Robert J. De Rosa, Jason J. Wang, Johannes Sahlmann, Paul Kalas, Gaspard Duchêne, Julien Rameau, et al. 2020.
-              “The Gemini Planet Imager Exoplanet Survey: Dynamical Mass of the Exoplanet &beta; Pictoris b from Combined Direct Imaging and Astrometry.”
-              The Astronomical Journal 159 (2): 71, doi: <a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">10.3847/1538-3881/ab5b92</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...71N/abstract" target="_blank">ADS</a>.</p>
-              <p>Nowak, M., S. Lacour, P. Mollière, J. Wang, B. Charnay, E. F. van Dishoeck, R. Abuter, et al. 2020.
-              “Peering into the Formation History of &beta; Pictoris b with VLTI/GRAVITY Long-Baseline Interferometry.”
-              Astronomy & Astrophysics 633 (January): A110,
-              doi: <a href="https://doi.org/10.1051/0004-6361/201936898">10.1051/0004-6361/201936898</a>,
-              <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...633A.110G/abstract" target="_blank">ADS</a>.</p>
+              <!-- <p>Foreman-Mackey, Daniel, Eric Agol, Sivaram Ambikasaran, and Ruth Angus. 2017. -->
+              <!-- “Fast and Scalable Gaussian Process Modeling with Applications to Astronomical Time Series.” -->
+              <!-- The Astronomical Journal 154 (6): 220, -->
+              <!-- doi: <a href="https://doi.org/10.3847/1538-3881/aa9332" target="_blank">10.3847/1538-3881/aa9332</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2017AJ....154..220F/abstract" target="_blank">ADS</a>.</p> -->
+              <!-- <p>Fulton, Benjamin J., Erik A. Petigura, Sarah Blunt, and Evan Sinukoff. 2018. -->
+              <!-- “RadVel: The Radial Velocity Modeling Toolkit.” -->
+              <!-- Publications of the Astronomical Society of the Pacific 130 (986): 044504, -->
+              <!-- doi: <a href="https://doi.org/10.1088/1538-3873/aaaaa8" target="_blank">10.1088/1538-3873/aaaaa8</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2018PASP..130d4504F/abstract" target="_blank">ADS</a>.</p> -->
+              <!-- <p>Lagrange, A.-M., A. Boccaletti, M. Langlois, G. Chauvin, R. Gratton, H. Beust, S. Desidera, et al. 2019a. -->
+              <!-- “Post-Conjunction Detection of &beta; Pictoris b with VLT/SPHERE.” -->
+              <!-- Astronomy & Astrophysics 621 (January): L8, -->
+              <!-- doi: <a href="https://doi.org/10.1051/0004-6361/201732121" target="_blank">10.1051/0004-6361/201732121</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...621L...8L/abstract" target="_blank">ADS</a>.</p> -->
+              <!-- <p>Lagrange, A.-M., Nadège Meunier, Pascal Rubini, Miriam Keppler, Franck Galland, Eric Chapellier, Eric Michel, et al. 2019b. -->
+              <!-- “Evidence for an Additional Planet in the β Pictoris System.” Nature Astronomy 3, no. 12 (December 2019): 1135–42, -->
+              <!-- doi: <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">s41550-019-0857-1</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2019NatAs...3.1135L/abstract" target="_blank">ADS</a>.</p> -->
+              <!-- <p>Nielsen, Eric L., Robert J. De Rosa, Jason J. Wang, Johannes Sahlmann, Paul Kalas, Gaspard Duchêne, Julien Rameau, et al. 2020. -->
+              <!-- “The Gemini Planet Imager Exoplanet Survey: Dynamical Mass of the Exoplanet &beta; Pictoris b from Combined Direct Imaging and Astrometry.” -->
+              <!-- The Astronomical Journal 159 (2): 71, doi: <a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">10.3847/1538-3881/ab5b92</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...71N/abstract" target="_blank">ADS</a>.</p> -->
+              <!-- <p>Nowak, M., S. Lacour, P. Mollière, J. Wang, B. Charnay, E. F. van Dishoeck, R. Abuter, et al. 2020. -->
+              <!-- “Peering into the Formation History of &beta; Pictoris b with VLTI/GRAVITY Long-Baseline Interferometry.” -->
+              <!-- Astronomy & Astrophysics 633 (January): A110, -->
+              <!-- doi: <a href="https://doi.org/10.1051/0004-6361/201936898">10.1051/0004-6361/201936898</a>, -->
+              <!-- <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...633A.110G/abstract" target="_blank">ADS</a>.</p> -->
             </div>
           </div>
 
