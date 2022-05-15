@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content=''>
+
+  <title>PISCO - CASCA 2022 - Thomas Vandal</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $('[data-toggle="modal"]').tooltip({
+        trigger : 'hover'
+    });
+  </script>
+
+  <style>
+    .supsub {
+    display: inline-block;
+    }
+
+    .supsub sup,
+    .supsub sub {
+        position: relative;
+        display: block;
+        font-size: .7em;
+        line-height: 1.1;
+    }
+
+    .tooltip {
+      font-size: 16px;
+    }
+
+    .supsub sub {
+        top: .2em;
+    }
+    .supsub sup {
+        top: .1em;
+    }
+    /* CSS Style */
+    .click-img {
+      cursor: pointer;
+    }
+
+    .click-img:hover {
+      opacity: 0.5;
+    }
+
+    .carousel-caption {
+      position: relative;
+      left: auto;
+      right: auto;
+      color: #000000;
+      text-shadow: none;
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 500px;
+      bottom: 0;
+      left: 0;
+      width: 8%;  /* change this value to required width */
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+      background: none !important;
+      color: #000 !important;
+      filter: alpha(opacity=50);
+      opacity: .5;
+    }
+
+    .modal {
+      text-align: center;
+    }
+
+    @media screen and (min-width: 768px) { 
+      .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+      }
+    }
+
+    .panel-default {
+      border: 0;
+    }
+
+    .modal-content {
+      border: 0;
+    }
+
+
+    .panel-body {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .modal-dialog {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .modal-header {
+      background-color: #404040;
+      color: #ffffff;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .modal-text {
+      vertical-align: top;
+      margin-top: 200px;
+    }
+
+    .modal-hist {
+      vertical-align: middle;
+      width: 48%;
+      height: auto;
+    }
+
+    .modal-plot {
+      vertical-align: middle;
+      width: 70%;
+      height: auto;
+    }
+
+    .caption {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .caption-mod {
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    .panel-custom-title {
+      border: 0;
+      border-style: none;
+      box-shadow: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: none;
+      color: #ffffff;
+    }
+
+    .panel-user-tool {
+      border: 0;
+      border-style: none;
+      box-shadow: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: none;
+    }
+
+    .verticalhorizontal {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .carousel-fade .carousel-inner .item {
+      opacity: 0;
+      transition-property: opacity;
+    }
+
+    .carousel-fade .carousel-inner .active {
+      opacity: 1;
+    }
+
+    .carousel-fade .carousel-inner .active.left,
+    .carousel-fade .carousel-inner .active.right {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .carousel-fade .carousel-inner .next.left,
+    .carousel-fade .carousel-inner .prev.right {
+      opacity: 1;
+    }
+
+    .panel > .panel-heading {
+      background-color: #404040;
+      color: #ffffff;
+      padding-bottom: 0;
+    }
+
+    .close-dark {
+      color: #ffffff;
+    }
+
+    .btn.btn-info {
+      color: #ffffffffffff;
+      background-color: #404040;
+      border-color: #404040;
+    }
+    .btn.btn-info.focus,
+    .btn.btn-info:focus {
+      color: #ffffffffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+    }
+    .btn.btn-info:hover {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+    .btn.btn-info.active,
+    .btn.btn-info:active {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+    }
+    .btn.btn-info.active.focus,
+    .btn.btn-info.active:focus,
+    .btn.btn-info.active:hover,
+    .btn.btn-info:active.focus,
+    .btn.btn-info:active:focus,
+    .btn.btn-info:active:hover {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+    }
+
+    body {
+      background-image: linear-gradient(#6388CF, #ffffff);
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 0px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    body {
+      background-image: linear-gradient(#6388CF, #ffffff);
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 0px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    li {
+      margin: 0 0 8px 0;
+    }
+
+    a {
+      color:green;
+    }
+    
+    .mod-link {
+      color: #3366BB;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- entire poster in a big container -->
+<div class='container-fluid' style='margin-top:20px'>
+
+  <!-- title row -->
+  <div class='row'>
+    <div class='col-sm-1'>
+      <!-- logo  carousel top left-->
+      <div class='panel panel-custom-title'>
+        <div id="logoCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item verticalhorizontal">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/udem_logo_sq.png" width="100%" height="auto" alt="Université de Montréal">
+            </div>
+            <div class="item active">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/logo_notext.png" width="100%" height="auto" alt="iREx">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-10'>
+      <!-- title and authors in middle-->
+      <div class='panel panel-custom-title'>
+          <h1 class='text-center'>Detecting Hot Close-in Gas Giants Through Infrared High-Dispersion Spectroscopy</h1>
+          <p class='text-center' style="font-size: 18px;">
+              Thomas Vandal<sup>1</sup>
+              R. Doyon<sup>1</sup>
+              R. Allart<sup>1</sup>
+              É. Artigau<sup>1</sup>
+              J. Gagné<sup>1,2</sup>
+              D. Lafrenière<sup>1</sup>
+          </p>
+          <p class='text-center' style="font-size: 18px;">
+            <sup>1</sup> Institut de Recherche sur les Exoplanètes, Département de Physique, Université de Montréal &nbsp;&nbsp;&nbsp;
+            <sup>2</sup> Planétarium Rio Tinto Alcan
+          </p>
+      </div>
+    </div>
+    <div class='col-sm-1'>
+      <!-- author photo top right -->
+      <div class='panel panel-custom-title'>
+        <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/photo_thomas_vandal.jpg" width="100%" height="auto" class="center"/>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='panel panel-default'>
+        <div class="panel-heading" data-toggle="collapse">
+          <h3>Abstract</h3>
+        </div>
+        <div class='panel-body'>
+          <!-- Abstract -->
+          <p>
+            Existing exoplanet detection methods have uncovered nearly 5000 planets outside
+            the solar system. However these methods are heavily biased
+            towards shorter (e.g. radial velocity (RV) and transit) or
+            longer (e.g. direct imaging) orbital separations. This leaves a
+            range of short separations below 0.1-0.2 arcseconds that
+            remains challenging to explore efficiently, especially with
+            direct detection methods, and where our understanding of the
+            planet population depends on detection limits from RV, transit
+            and imaging. We propose a novel technique to directly detect
+            young, giant exoplanets at all orbital separations and bridge
+            the gap between existing detection methods. Using high
+            dispersion spectroscopy, one can detect the spectral signature
+            of a companion by cross-correlating observations of a star with
+            a planetary-mass object template. Through this technique, our
+            simulations show that companions can be detected for contrast
+            ratios down to 3x10⁻⁵ with a single observation of less than 2
+            hours on a 4-meter-class telescope. Once a companion has been
+            detected it will also be amenable to further orbital and
+            atmospheric characterization via cross-correlation
+            spectroscopy. We show how this technique can be used to
+            efficiently detect hot Jupiters, young brown dwarfs and
+            exoplanets using the SpectroPolarimètre InfraRouge (SPIRou) and
+            the Near Infrared Planet Searcher (NIRPS). This will open the
+            way to the efficient detection and characterization of giant
+            exoplanet that were unattainable with current detection
+            techniques.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-3'>
+
+    <div class='panel panel-default'>
+      <div class="panel-heading">
+        <h3>Directly detecting close-in giant planets</h3>
+      </div>
+      <div class='panel-body'>
+        <!-- System info -->
+        <ul>
+          <li>Two known giant planets around a young (23 Myr) and active star.</li>
+          <li>Available data: 
+            <b>astrometry</b> from high-contrast imaging 
+            (<a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">Nielsen et al. 2020</a>), 
+            radial velocity (<b>RV</b>; 
+            <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">Lagrange et al. 2019b</a>), 
+            <b>photometry</b> 
+            (<a href="https://doi.org/10.1051/0004-6361/201732121" target="_blank">Mékarnia et al. 2017</a>).</li>
+          <li>Opportunity to <b>calibrate mass-luminosity models</b> with planetary 
+            mass measurements.</li>
+          <li>Complex &delta; Scuti <b>pulsations overwhelm RV planetary signals</b>.</li>
+        </ul>
+
+        <ul>
+          <li>Two known giant planets around a young (23 Myr) and active star.</li>
+          <li>Available data: 
+            <b>astrometry</b> from high-contrast imaging 
+            (<a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">Nielsen et al. 2020</a>), 
+            radial velocity (<b>RV</b>; 
+            <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">Lagrange et al. 2019b</a>), 
+            <b>photometry</b> 
+            (<a href="https://doi.org/10.1051/0004-6361/201732121" target="_blank">Mékarnia et al. 2017</a>).</li>
+          <li>Opportunity to <b>calibrate mass-luminosity models</b> with planetary 
+            mass measurements.</li>
+          <li>Complex &delta; Scuti <b>pulsations overwhelm RV planetary signals</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <div class="panel-heading">
+          <h3>The Near Infrared Planet Searcher</h3>
+        </div>
+        <div class='panel-body'>
+          <!-- RV extension -->
+          <!-- Modal -->
+          <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-hist">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_dist.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Distribution of the well-sampled RV data with the constant offset subtracted for each group.
+                    The standard deviation of this distribution can be used to to calculate the standard error of each group, including those before 2008.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="gaussShoModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/offsets_gauss_sho.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: RV offsets from GP activity modelling and from Gaussian approximations for groups after 2008.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="allOffsets" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/offsets_gauss.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Full timeseries of RV offsets with offsets from GP modelling 
+                    and Gaussian statistics.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>We obtain <b>8 new RV offsets covering 5 years</b> (2003-2008). <b>Poor sampling prevents activity 
+                modelling</b> for these RV groups.</li>
+            <li>These data were <b>excluded from previous analyses</b> (e.g. <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">Lagrange et al. 2019b</a>).</li>
+            <li>
+              We use <b>simple <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#gaussModal">Gaussian statistics</a></b> to calculate RV offset and error estimates 
+              (<b>Mean ± Standard Error</b>).</li>
+            <li>
+              Offsets obtained with this method are in <b><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#gaussShoModal">good agreement with the SHO GP offsets</a></b>.</li>
+            <li>Full RV coverage: 2003-2018, a <b>signficant fraction of &beta; Pic b's period</b> (~20 yr)</li>
+          </ul>
+          <p><img class="click-img" data-toggle="modal" data-target="#allOffsets" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/offsets_gauss.png' width='100%' height='auto'></p>
+          <p class='caption'><em>Figure: Full timeseries of RV offsets with offsets from GP modelling 
+            and Gaussian statistics.</em></p>
+        </div>
+      </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <!-- RV fit -->
+        <div class="panel-heading">
+          <h3>Direct detection with high-resolution cross-correlation spectroscopy</h3>
+        </div>
+        <div class='panel-body'>
+          <!-- Modal -->
+          <div id="rvModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-text">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Orbit fitting with RV data only</h4>
+                </div>
+                <div class="modal-body">
+                  <p>We tested three sets of priors on the orbital parameters of &beta; Pic b from direct imaging:</p>
+                    <ul>
+                      <li>Gaussian based on values from <a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">Nielsen et al. (2020)</a>.</li>
+                      <li>Gaussian based on values from <a href="https://doi.org/10.1051/0004-6361/201834302" target="_blank">Lagrange et al. (2019a)</a>.</li>
+                      <li>Gaussian only in <i>&omega;<sub>b</sub></i> and <i>T<sub>c,b</sub></i>  (in agreement for both references above).</li>
+                    </ul>
+                    <p>We used the Python module <a href="https://radvel.readthedocs.io/en/stable/" target="_blank">RadVel</a> (<a href="https://doi.org/10.1088/1538-3873/aaaaa8" target="_blank">Fulton et al. 2017</a>) to calculate RV Keplerian orbits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="rvMassesModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_only_masses.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Mass distributions from RV fit. The distribution for different priors show that masses have low sensitivity 
+                    to priors. "Free Priors" designates a model where all parameters have non-informative priors, except for 
+                    &omega;<sub>b</sub> and T<sub>c,b</sub> which have Gaussian priors.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="rvPerEccModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_only_perecc.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Period and eccentricity distributions of &beta; Pic b from RV fit. 
+                    The distributions for different priors show that P<sub>b</sub> and e<sub>b</sub> are sensitive to priors. 
+                    Low periods and eccenctricities are favoured by the RV data when free priors are used on both parameters.
+                    "Free Priors" designates a model where all parameters have non-informative priors, except for 
+                    &omega;<sub>b</sub> and T<sub>c,b</sub> which have Gaussian priors.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="rvFit" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_fit.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: The two-planet best fit is shown in blue, and the signal of &beta; Pic b alone is shown in red.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul style="font-size: 18px;">
+            <li>15 years of RV coverage allow us to <b>constrain the orbit and mass of both planets from 
+                extended RV data only for the first time</b>, with <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvModal">priors from direct imaging</a>.</li>
+          </ul>
+          <br>
+          <p><img class="click-img" data-toggle="modal" data-target="#rvFit" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/rv_fit.png' width='100%' height='auto'></p>
+          <p class='caption'><em>Figure: The two-planet best fit is shown in blue, and the signal of &beta; Pic b alone is shown in red.</em></p>
+          <br>
+          <ul style="font-size: 18px;">
+            <li><b><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvMassesModal">Mass measurements</a></b> show <b>low sensitivity to the choice of priors</b>.</li>
+            <li><b><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvPerEccModal">Period and eccentricity</a></b> measurements are <b>sensitive to the priors</b>.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <div class="panel-heading">
+          <h3>PISCO: Planet Inference from Spectral Correlation</h3>
+        </div>
+        <div class='panel-body'>
+          <!-- Joint fit -->
+          <!-- Modal -->
+          <div id="jointModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <br>
+                  <div id="jointCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/joint_fit_rv.png" width="100%" height="auto">
+                        <div class="carousel-caption">
+                          <p class="caption-mod">Figure: RV component of the joint fit.</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/joint_fit_astro.png" width="100%" height="auto">
+                        <div class="carousel-caption">
+                          <p class="caption-mod">Figure: Relative astrometry component of the joint fit.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#jointCarousel" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#jointCarousel" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="jointMassesModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/joint_masses.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Mass posterior distributions for both planets. 
+                    The joint fit improves precision and yields a higher mass for &beta; Pic c.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="jointPerEccModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/joint_perecc.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Posterior distributions for P<sub>b</sub> and e<sub>b</sub>. 
+                    The joint fit significantly improves precision compared to the RV-only fit. The inclusion of the VLTI/GRAVITY measurement from 
+                    <a href="https://doi.org/10.1051/0004-6361/201936898" target="_blank">Nowak et al. (2020)</a> also slightly improves the precision on both parameters.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div id="massModels" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-hist">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Mass distribution of &beta; Pic b from our dynamical measurement compared to predictions from evolutionary models.</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="jointMethod" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-text">
+              <div class="modal-content">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Joint Fit of all RV and Relative Astrometry</h4>
+                  </div>
+                  <div class="modal-body">
+                    <ul>
+                      <li>To jointly fit RV and relative astrometry, we use the same 
+                        <a href="https://radvel.readthedocs.io/en/stable/" target="_blank">RadVel</a> framework as for RV only, 
+                        but include an additional likelihood for relative astrometry.</li>
+                      <li>We applie a correction to the GPI measurements 
+                        (<a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">Nielsen et al. 2020</a>). 
+                        We include these corrections (in Sep. and PA) as free parameters in our model. 
+                        So far, their value does not seem to affect the em to affect the final result.</li>
+                      <li>To fit the VLTI/GRAVITY measurement from 
+                        <a href="https://doi.org/10.1051/0004-6361/201936898" target="_blank">Nowak et al. (2020)</a>, 
+                        we include a second custom likelihood to account for correlations between the two coordinates
+                        (&Delta;RA, &Delta;DEC).
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>Performing a <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#jointModal"><b>joint fit</b></a> of relative astrometry and RV data yields 
+              <b><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#jointMassesModal">M<sub>b</sub>&nbsp;=&nbsp;12.7&nbsp;±&nbsp;1.3&nbsp;M<sub>Jup</sub> 
+                  and M<sub>c</sub>sin(i<sub>c</sub>)&nbsp;=&nbsp;8.5&nbsp;±&nbsp;0.5&nbsp;M<sub>Jup</sub></a></b>.</li>
+            <li><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#jointPerEccModal"><b>Low eccentricity and period</b></a> are favoured with 
+              <!-- P<sub>b</sub>&nbsp;=&nbsp;20.6&nbsp;&plusmn;&nbsp;1.0&nbsp;yr and --> 
+              <!-- P<sub>b</sub>&nbsp;=&nbsp;20.6&nbsp;<sup>+1.0</sup><sub style="display: inline-block; position: relative; left: -20px;">-0.5</sub>&nbsp;yr and --> 
+              P<sub>b</sub>&nbsp;=&nbsp;20.6&nbsp;<span class="supsub"><sup>+1.5</sup><sub>-0.4</sub></span>&nbsp;yr and 
+              e<sub>b</sub>&nbsp;&lt;&nbsp;0.13 (3&sigma;).</li>
+            <li>Generally, parameters are constrained with <b>better precision</b> in the joint fit than in the RV fit.</li>
+            <li>We <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#jointMethod"><b>use all available relative astrometry</b></a>, including the VLTI/GRAVITY measurement from 
+              <a href="https://doi.org/10.1051/0004-6361/201936898" target="_blank">Nowak et al. (2020)</a>.</li>
+          </ul>
+          <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p>
+          <p class='caption'><em>Figure: Mass distribution of &beta; Pic b from our dynamical measurement compared to predictions from evolutionary models.</em></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-right">
+      <div class='panel panel-user-tool'>
+
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#refs">References</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#acks">Acknowledgements</button>
+
+
+      <!-- Modal -->
+      <div id="refs" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">References</h4>
+            </div>
+            <div class="modal-body">
+              <p>Foreman-Mackey, Daniel, Eric Agol, Sivaram Ambikasaran, and Ruth Angus. 2017. 
+              “Fast and Scalable Gaussian Process Modeling with Applications to Astronomical Time Series.” 
+              The Astronomical Journal 154 (6): 220, 
+              doi: <a href="https://doi.org/10.3847/1538-3881/aa9332" target="_blank">10.3847/1538-3881/aa9332</a>, 
+              <a href="https://ui.adsabs.harvard.edu/abs/2017AJ....154..220F/abstract" target="_blank">ADS</a>.</p>
+              <p>Fulton, Benjamin J., Erik A. Petigura, Sarah Blunt, and Evan Sinukoff. 2018. 
+              “RadVel: The Radial Velocity Modeling Toolkit.” 
+              Publications of the Astronomical Society of the Pacific 130 (986): 044504, 
+              doi: <a href="https://doi.org/10.1088/1538-3873/aaaaa8" target="_blank">10.1088/1538-3873/aaaaa8</a>, 
+              <a href="https://ui.adsabs.harvard.edu/abs/2018PASP..130d4504F/abstract" target="_blank">ADS</a>.</p>
+              <p>Lagrange, A.-M., A. Boccaletti, M. Langlois, G. Chauvin, R. Gratton, H. Beust, S. Desidera, et al. 2019a. 
+              “Post-Conjunction Detection of &beta; Pictoris b with VLT/SPHERE.” 
+              Astronomy & Astrophysics 621 (January): L8, 
+              doi: <a href="https://doi.org/10.1051/0004-6361/201732121" target="_blank">10.1051/0004-6361/201732121</a>,
+              <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...621L...8L/abstract" target="_blank">ADS</a>.</p>
+              <p>Lagrange, A.-M., Nadège Meunier, Pascal Rubini, Miriam Keppler, Franck Galland, Eric Chapellier, Eric Michel, et al. 2019b.
+              “Evidence for an Additional Planet in the β Pictoris System.” Nature Astronomy 3, no. 12 (December 2019): 1135–42, 
+              doi: <a href="https://doi.org/10.1038/s41550-019-0857-1" target="_blank">s41550-019-0857-1</a>, 
+              <a href="https://ui.adsabs.harvard.edu/abs/2019NatAs...3.1135L/abstract" target="_blank">ADS</a>.</p>
+              <p>Nielsen, Eric L., Robert J. De Rosa, Jason J. Wang, Johannes Sahlmann, Paul Kalas, Gaspard Duchêne, Julien Rameau, et al. 2020. 
+              “The Gemini Planet Imager Exoplanet Survey: Dynamical Mass of the Exoplanet &beta; Pictoris b from Combined Direct Imaging and Astrometry.” 
+              The Astronomical Journal 159 (2): 71, doi: <a href="https://doi.org/10.3847/1538-3881/ab5b92" target="_blank">10.3847/1538-3881/ab5b92</a>, 
+              <a href="https://ui.adsabs.harvard.edu/abs/2020AJ....159...71N/abstract" target="_blank">ADS</a>.</p>
+              <p>Nowak, M., S. Lacour, P. Mollière, J. Wang, B. Charnay, E. F. van Dishoeck, R. Abuter, et al. 2020. 
+              “Peering into the Formation History of &beta; Pictoris b with VLTI/GRAVITY Long-Baseline Interferometry.” 
+              Astronomy & Astrophysics 633 (January): A110, 
+              doi: <a href="https://doi.org/10.1051/0004-6361/201936898">10.1051/0004-6361/201936898</a>, 
+              <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...633A.110G/abstract" target="_blank">ADS</a>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Modal -->
+      <div id="acks" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Acknowledgements</h4>
+            </div>
+            <div class="modal-body">
+              <p>
+              We thank Anne-Marie Lagrange for providing all published individual RV measurements and Djamel Mékarnia for the ASTEP light curve. 
+              We thank Lauren Weiss for her contribution to early phases of this project and Aurélien Wyttenbach and Raphaëlle Haywood for fruitful discussions about GP. 
+              TV acknowledges support from an Institut de Recherche sur les Exoplanètes (iREx) Trottier Excellence Grant. 
+              JR and RD acknowledge support from Fonds de Recherche du Québec since JR's work was performed in part under contract with the University of Montréal. 
+              JR is supported by the French National Research Agency in the framework of the Investissements d’Avenir program (ANR-15-IDEX-02), 
+              through the funding of the "Origin of Life" project of the Univ. Grenoble-Alpes."
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
