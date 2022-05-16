@@ -443,7 +443,7 @@
           <li>Adaptive optics fiber-fed spectrograph</li>
           <li>Covering YJH bands (0.98-1.8 &mu;m)</li>
           <li>Resolving power ~ 80,000</li>
-          <li>Installed on ESO's 3.6 meter Telescope at La Silla, Chile</li>
+          <li>Installed on ESO's 3.6 meter Telescope at La Silla, Chile [1]</li>
         </ul>
       </div>
     </div>
@@ -540,7 +540,7 @@
             <li>High resolution and wide spectral coverage are critical: detection strength scales with \( \sqrt{N_\text{lines}} \)</li>
           </ul>
 
-          <p>This has been shown to work for binaries with a low-mass secondary (Gullikson et al. 2016). We aim to extend it to fainter, planetary-mass companions at all separations. <b>The sensitivity of this method does not depend on orbital separation</b>. HDS has already been used to characterize known giant planets. Once a companion is detected, it will be amenable to:</p>
+          <p>This has been shown to work for binaries with a low-mass secondary [2]. We aim to extend it to fainter, planetary-mass companions at all separations. <b>The sensitivity of this method does not depend on orbital separation</b>. HDS has already been used to characterize known giant planets (e.g. [3,4,5]). Once a companion is detected, it will be amenable to:</p>
           <ul>
             <li>Radial velocity and rotational velocity (\( v \sin{i} \)) measurements</li>
             <li>Mass determination and orbital characterization with follow-up observations</li>
@@ -577,6 +577,29 @@
               </div>
             </div>
           </div>
+          <div id="independentConfirmModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-text">
+              <div class="modal-content">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Independent confirmation of brown dwarf companions</h4>
+                  </div>
+                  <div class="modal-body">
+                    <ul>
+                      <li>4 of the brown dwarf companions we will observed to confirm performance have been detected only with Sparse Aperture Masking (SAM) at the Very Large Telescope [6]</li>
+                      <ul>
+                        <li>HIP 73990 B and C</li>
+                        <li>HIP 78196 B</li>
+                        <li>HIP 71724 B</li>
+                      </ul>
+                      <li>These companions could not be confirmed with SPHERE direct imaging, possibly due to their short separation at the time of observation [7]</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <p>The PISCO program aims to demonstrate the proposed technique with NIRPS. It will:</p>
           <ul>
             <li>Observe young bright stars and fast rotators</li>
@@ -586,10 +609,9 @@
             </ul>
             <li><b>Confirm performance on sky with known companions</b>: 8 brown dwarfs and 2 giant planets with contrasts <b>covering three orders of magnitude</b>, from \( 2 \times 10^{-2} \) to \( 3 \times 10^{-5} \)</li>
             <ul>
-              <!-- TODO: Modal to detail opportunity -->
-
               <li>BDs will serve as clear, unambiguous demonstration of the technique</li>
-              <li>Opportunity to independently confirm 4 of these companions for the first time</li>
+              <!-- TODO: Modal to detail opportunity -->
+              <li><a class="mod-link" data-toggle="modal" data-keyboard="true" href="#independentConfirmModal">Opportunity to independently confirm 4 of these companions for the first time</a> [6,7]</li>
               <li>Giant planets a few times more massive than Jupiter will demonstrate the feasibility of more challenging targets</li>
             </ul>
             <li>Once the technique has been demonstrated: <b>observe three systems suspected to host undetected giant planets at short separations</b></li>
@@ -599,7 +621,7 @@
           </ul>
           <p align="center"><img class="click-img" data-toggle="modal" data-target="#amiModal" src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/ami_targets.png' width='100%' height='auto'></p>
           <!-- <p align="center"><img class="click-img" data-toggle="modal" data-target="#massModels" src='./figures/ami_targets.png' width='100%' height='auto'></p> -->
-          <p class='caption'><em>Figure: Ground-based observations of the three systems suspected to have inner companions we will target with PISCO. Figures from Zurlo et al. (2016), Rameau et al. (2013) and Currie et al. (2015))</em></p>
+          <p class='caption'><em>Figure: Ground-based observations of the three systems suspected to have inner companions we will target with PISCO. Figures from [8,9,10]</em></p>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
           <!-- <p class='caption'><em>Figure: Mass distribution of &beta; Pic b from our dynamical measurement compared to predictions from evolutionary models.</em></p> -->
         </div>
@@ -702,6 +724,17 @@
               <h4 class="modal-title">References</h4>
             </div>
             <div class="modal-body">
+              <p><sup>1</sup><a href="http://adsabs.harvard.edu/abs/2017Msngr.169...21B" target="_blank">Bouchy et al. (2017)</a>. "Near-InfraRed Planet Searcher to Join HARPS on the ESO 3.6-metre Telescope"</p>
+              <p><sup>2</sup><a href="http://adsabs.harvard.edu/abs/2016AJ....151....3G" target="_blank">Gullison et al. (2016)</a>. "Direct Spectral Detection: An Efficient Method to Detect and Characterize Binary Systems"</p>
+              <p><sup>3</sup><a href="https://ui.adsabs.harvard.edu/abs/2018haex.bookE..16B" target="_blank">Birkby (2018)</a>. "Spectroscopic Direct Detection of Exoplanets"</p>
+              <p><sup>4</sup><a href="https://ui.adsabs.harvard.edu/abs/2019AJ....157..114B" target="_blank">Brogi and Line (2019)</a>. "Spectroscopic Direct Detection of Exoplanets"</p>
+              <p><sup>5</sup><a href="https://ui.adsabs.harvard.edu/abs/2021AJ....162...73P" target="_blank">Pelletier et al. (2021)</a>. "Where Is the Water? Jupiter-like C/H Ratio but Strong H2O Depletion Found on τ Boötis b Using SPIRou"</p>
+              <p><sup>6</sup><a href="https://ui.adsabs.harvard.edu/abs/2015ApJ...806L...9H" target="_blank">Hinkley et al. (2015)</a>. "Discovery of Seven Companions to Intermediate-mass Stars with Extreme Mass Ratios in the Scorpius-Centaurus Association"</p>
+              <p><sup>7</sup><a href="https://ui.adsabs.harvard.edu/abs/2021A&A...651A..70D" target="_blank">Desidera et al. (2021)</a>. "The SPHERE infrared survey for exoplanets (SHINE). I. Sample definition and target characterization"</p>
+              <p><sup>8</sup><a href="https://ui.adsabs.harvard.edu/abs/2016A&A...587A..57Z" target="_blank">Zurlo et al. (2016)</a>. "First light of the VLT planet finder SPHERE. III. New spectrophotometry and astrometry of the HR 8799 exoplanetary system"</p>
+              <p><sup>9</sup><a href="https://ui.adsabs.harvard.edu/abs/2013ApJ...779L..26R" target="_blank">Rameau et al. (2013)</a>. "Confirmation of the Planet around HD 95086 by Direct Imaging"</p>
+              <p><sup>10</sup><a href="https://ui.adsabs.harvard.edu/abs/2015ApJ...807L...7C/abstract" target="_blank">Currie et al. (2015)</a>. "Direct Imaging and Spectroscopy of a Young Extrasolar Kuiper Belt in the Nearest OB Association"</p>
+ 
               <!-- <p>Foreman-Mackey, Daniel, Eric Agol, Sivaram Ambikasaran, and Ruth Angus. 2017. -->
               <!-- “Fast and Scalable Gaussian Process Modeling with Applications to Astronomical Time Series.” -->
               <!-- The Astronomical Journal 154 (6): 220, -->
