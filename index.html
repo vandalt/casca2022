@@ -84,6 +84,13 @@
       text-align: center;
     }
 
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      /* width: 50%; */
+    }
+
     @media screen and (min-width: 768px) {
       .modal:before {
         display: inline-block;
@@ -526,14 +533,14 @@
           <ul>
             <!-- 15 years of RV coverage allow us to <b>constrain the orbit and mass of both planets from  -->
             <!--     extended RV data only for the first time</b>, with <a class="mod-link" data-toggle="modal" data-keyboard="true" href="#rvModal">priors from direct imaging</a>. -->
-            <li>The first step is to obtain a single spectrum of a star with high signal-to-noise ratio (S/N)</li>
-            <li>We then cross-correlate this spectrum with model spectra of potential planetary-mass companions</li>
-            <li>If a companion is present, the cross-correlation funciont (CCF) shows a peak, as displayed in the right panel. The peak height corresponds to detection strength.</li>
-            <li>Observing in the infrared maximizes the companion-to-host contrast</li>
-            <li>High resolution and wide spectral coverage are critical: the detection significance scales with \( \sqrt{N_\text{lines}} \) (number of spectral lines observed)</li>
+            <li>Requires a single spectrum of a star with high signal-to-noise ratio (S/N)</li>
+            <li>We cross-correlate this spectrum with model spectra of potential planetary-mass companions</li>
+            <li>If a companion is present, the cross-correlation function (CCF) shows a peak, as displayed in the right panel. The peak height corresponds to detection strength.</li>
+            <li>Observing in the near-infrared maximizes companion-to-host contrast</li>
+            <li>High resolution and wide spectral coverage are critical: detection strength scales with \( \sqrt{N_\text{lines}} \)</li>
           </ul>
 
-          <p>This has been shown to work for binaries with a low-mass secondary (Gullikson et al. 2016). We aim to extend it to fainter, planetary mass companions. <b>The sensitivity of this method does not depend on orbital separation</b>. HDS has already been used to characterize known giant planets. Once a companion is detected, it will be amenable to:</p>
+          <p>This has been shown to work for binaries with a low-mass secondary (Gullikson et al. 2016). We aim to extend it to fainter, planetary-mass companions at all separations. <b>The sensitivity of this method does not depend on orbital separation</b>. HDS has already been used to characterize known giant planets. Once a companion is detected, it will be amenable to:</p>
           <ul>
             <li>Radial velocity and rotational velocity (\( v \sin{i} \)) measurements</li>
             <li>Mass determination and orbital characterization with follow-up observations</li>
@@ -558,6 +565,18 @@
           <h3>PISCO:<br> Planet Inference from Spectral COrrelation</h3>
         </div>
         <div class='panel-body'>
+          <div id="amiModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <p><img src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/ami_targets.png' width='100%' height='auto'></p>
+                  <p class='caption-mod'><em>Figure: Ground-based observations of the three systems suspected to have inner companions we will target with PISCO. Figures from Zurlo et al. (2016), Rameau et al. (2013) and Currie et al. (2015))</em></p>
+                </div>
+              </div>
+            </div>
+          </div>
           <p>The PISCO program aims to demonstrate the proposed technique with NIRPS. It will:</p>
           <ul>
             <li>Observe young bright stars and fast rotators</li>
@@ -578,7 +597,7 @@
               <li>Synergy with JWST/NIRISS Aperture Masking Interferometry GTO program</li>
             </ul>
           </ul>
-          <p align="center"><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/ami_targets.png' width='100%' height='auto'></p>
+          <p align="center"><img class="click-img" data-toggle="modal" data-target="#amiModal" src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/ami_targets.png' width='100%' height='auto'></p>
           <!-- <p align="center"><img class="click-img" data-toggle="modal" data-target="#massModels" src='./figures/ami_targets.png' width='100%' height='auto'></p> -->
           <p class='caption'><em>Figure: Ground-based observations of the three systems suspected to have inner companions we will target with PISCO. Figures from Zurlo et al. (2016), Rameau et al. (2013) and Currie et al. (2015))</em></p>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
@@ -594,6 +613,48 @@
           <h3>First results</h3>
         </div>
         <div class='panel-body'>
+          <div id="ccModal" class="modal fade" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-plot">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <br>
+                  <div id="jointCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="./figures/bpic_c_cc.png" width="60%" height="auto" class="center">
+                        <div class="carousel-caption">
+                          <p class="caption-mod">Figure: CCF showing the simulated detection of &beta; Pictoris c through cross-correlation HDS with NIRPS. This ~8 M<sub>Jup</sub> giant planet has a well characterized orbit and dynamical mass measurements are available. It is a good case to demonstrate our technique, but also to further characterize this system at high resolution.</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./figures/hip73990_bc_cc.png" width="60%" height="auto" class="center">
+                        <div class="carousel-caption">
+                          <p class="caption-mod">Figure: CCF showing the simulated detection of two brown dwarfs orbiting HIP 73990. These two companions were detected with Sparse Aperture Masking (SAM) at the Very Large Telescope, but were not confirmed with SPHERE imaging, possibly due to their short separation. Observing them with NIRPS would provide an independent confirmation.</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./figures/hd984_b_cc.png" width="60%" height="auto" class="center">
+                        <div class="carousel-caption">
+                          <p class="caption-mod">Figure: CCF showing the simulated detection of the brown dwarf orbiting HD 984. This represents a typical target that we will observe to demonstrate the performance of the proposed technique with NIRPS</p>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#jointCarousel" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#jointCarousel" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <p><b>We simulated all targets from PISCO and found that all known companions can be recovered at \( 4 \sigma \) with exposures shorter than 2 hours</b></p>
           <ul>
             <li>Systems with a BD secondary (contrasts \( \gt 10^{-3} \)) can be recovered at \( \gt 5 \sigma \)</li>
@@ -601,8 +662,8 @@
             <li>For the three systems targeted by blind search, contrasts down to \( 2 \times 10^{-4} \) are attainable</li>
           </ul>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
-          <p align="center"><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/casca2022/main/figures/bpic_c_cc.png' width='70%' height='auto'></p>
-          <p class='caption'><em>Figure: CCF showing the detection of &beta; Pictoris c with cross-correlation HDS</em></p>
+          <p align="center"><img class="click-img" data-toggle="modal" data-target="#ccModal" src='./figures/bpic_c_cc.png' width='70%' height='auto'></p>
+          <p class='caption'><em>Figure: CCF showing the simulated detection of &beta; Pictoris c with cross-correlation HDS (Click image to view other targets!)</em></p>
         </div>
       </div>
 
@@ -613,7 +674,7 @@
         <div class='panel-body'>
           <ul>
             <li>Refine simulations to better account for telluric correction and instrumental effects</li>
-            <li>On-sky observation</li>
+            <li>On-sky observations</li>
             <li>Larger survey after on-sky demonstration</li>
           </ul>
           <!-- <p><img class="click-img" data-toggle="modal" data-target="#massModels" src='https://raw.githubusercontent.com/vandalt/exo3-figures/master/mass_dist.png' width='100%' height='auto'></p> -->
